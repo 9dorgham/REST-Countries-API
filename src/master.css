@@ -13,6 +13,7 @@ p {
 }
 :root {
     --sh: 0 3px 10px rgba(0, 0, 0, 5%);
+    --pad: 5px 15px;
 }
 
 .icon {
@@ -26,23 +27,67 @@ p {
     align-items: center;
 }
 
-
+/* ||- header -|| */
 header {
+    margin-bottom: 3em;
     padding: 1.5em 3em;
-    margin-bottom:  3em;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 5%);
+    box-shadow: var(--sh);
 }
 header span {
     margin-inline-start: 0.5em;
 }
+/* ||- end -|| */
 
 main {
     padding: 3em;
 }
+
+/* ||- navgation -|| */
 nav .search {
     box-shadow: var(--sh);
+    background-color: #eee;
+    box-sizing: content-box;
+    padding: 5px 1em;
+    border-radius: 1ch;
 }
 nav input{
-    padding: 5px 15px;
+    padding: var(--pad);
     border: none;
+    margin-inline-start: 1em;
+    background-color: transparent;
+}
+nav #magnify {
+    fill: #ddd;
+}
+/* ||- end -|| */
+
+#filter {
+    border: none;
+    box-sizing: content-box;
+    padding: var(--pad);
+}
+
+#countries {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17em, 1fr));
+    gap: 3em;
+    margin-top: 3em;
+}
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 1ch 1ch 0 0;
+}
+.card figcaption { 
+    padding: 1.5em;
+}
+.card p {
+    margin-block: 5px;
+    opacity: 0.75;
+}
+.result {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
