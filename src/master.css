@@ -1,0 +1,48 @@
+*,
+html,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: sans-serif;
+}
+p {
+    font-size: 15px;
+}
+:root {
+    --sh: 0 3px 10px rgba(0, 0, 0, 5%);
+}
+
+.icon {
+    width: 2em;
+    height: 2em;
+}
+
+.flex-r-c {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+header {
+    padding: 1.5em 3em;
+    margin-bottom:  3em;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 5%);
+}
+header span {
+    margin-inline-start: 0.5em;
+}
+
+main {
+    padding: 3em;
+}
+nav .search {
+    box-shadow: var(--sh);
+}
+nav input{
+    padding: 5px 15px;
+    border: none;
+}
