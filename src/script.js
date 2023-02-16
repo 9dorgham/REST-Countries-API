@@ -1,6 +1,7 @@
 let section = document.getElementById('countries')
 let select = document.querySelector('select')
 let input = document.querySelector('input')
+let magnify = document.querySelector('#magnify');
 
 
 
@@ -28,10 +29,15 @@ getData().then((ob) => {
         displayCountries(ob, e.target.value)
     })
 
-    input.addEventListener('change', (e) => {
-        let countryName = e.target.value.toLowerCase()
-    
-        searchEngin(ob, countryName)
+    magnify.addEventListener('click', () => {
+        let value = input.value;
+        if (value) {
+            searchEngin(ob, value)
+            input.parentElement.removeChild(input.parentElement.querySelector('span'))
+        }else {
+            errorMes("Enter a country name")
+        }
+        
     })
 })
 
@@ -68,9 +74,9 @@ class Country {
         parent.classList.add('card')
    
 
-        // anchor.appendChild(img)
+        anchor.appendChild(img)
         figc.append(name, pop, region, capital)
-        parent.append(img, figc)
+        parent.append(anchor, figc)
         section.appendChild(parent)
     }
 }
@@ -109,6 +115,7 @@ function searchEngin(arr, countryName) {
             found = true;
             section.innerHTML = '';
             displayCountries([ob], ob.region)
+            return 0;
         }
     }
 
@@ -118,6 +125,7 @@ function searchEngin(arr, countryName) {
                 found = true;
                 section.innerHTML = '';
                 displayCountries([ob], ob.region)
+                return 0;
             }
         }
     }
@@ -131,6 +139,12 @@ function searchEngin(arr, countryName) {
     }
 }
 
+function errorMes(mes) {
+    let ele = document.createElement('span')
+    ele.textContent = mes;
+    ele.classList.add('error-mes')
+    input.parentNode.appendChild(ele)
+}
 
 
 // section.children[0].addEventListener('click', shareData(this), false)

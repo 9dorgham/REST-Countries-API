@@ -47,8 +47,9 @@ nav .search {
     box-shadow: var(--sh);
     background-color: #eee;
     box-sizing: content-box;
-    padding: 5px 1em;
+    padding: 7px 20px;
     border-radius: 1ch;
+    position: relative;
 }
 nav input{
     padding: var(--pad);
@@ -56,8 +57,25 @@ nav input{
     margin-inline-start: 1em;
     background-color: transparent;
 }
+nav input:focus {
+    outline: none;
+}
 nav #magnify {
     fill: #ddd;
+}
+nav #magnify:hover {
+    cursor: pointer;
+}
+nav .search .error-mes {
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    transform: translate(-50%, -120%);
+    background-color: red;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
 }
 /* ||- end -|| */
 
